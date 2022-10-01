@@ -1,7 +1,9 @@
+import './style.scss'
+
 export const Form = ()=>{
     return (
-        <form>
-            <div>
+        <form className='newTask'> 
+            <div className='inputContainer'>
                 <label htmlFor="task"></label>
                 <input 
                     type='text'
@@ -11,7 +13,7 @@ export const Form = ()=>{
                     required
                 />
             </div>
-            <div>
+            <div className='inputContainer'>
                 <label htmlFor="task"></label>
                 <input 
                     type='time'
