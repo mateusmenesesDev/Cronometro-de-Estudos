@@ -3,7 +3,7 @@ import style from './List.module.scss'
 
 
 export const List = ()=>{
-    const tasks = [
+    let tasks = [
         {task: 'React',time: '02:00:00'},
 
     ]
