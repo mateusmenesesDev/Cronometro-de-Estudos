@@ -1,9 +1,10 @@
-import './style.scss'
+import { Button } from '../Button'
+import style from './Form.module.scss'
 
 export const Form = ()=>{
     return (
-        <form className='newTask'> 
-            <div className='inputContainer'>
+        <form className={style.newTask}> 
+            <div className={style.inputContainer}>
                 <label htmlFor="task"></label>
                 <input 
                     type='text'
@@ -13,7 +14,7 @@ export const Form = ()=>{
                     required
                 />
             </div>
-            <div className='inputContainer'>
+            <div className={style.inputContainer}>
                 <label htmlFor="task"></label>
                 <input 
                     type='time'
@@ -25,6 +26,7 @@ export const Form = ()=>{
                     required
                 />
             </div>
+            <Button>Adicionar Estudo</Button>
         </form>
     )
 }
