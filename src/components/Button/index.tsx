@@ -1,9 +1,13 @@
 import React from "react"
 import style from'./Button.module.scss'
 
-export const Button = ({children}:{children:React.ReactNode})=>{
+interface Props{
+    children:React.ReactNode,
+    type?: 'button' | 'submit' | 'reset' | undefined
+}
+export const Button = ({type, children}:Props)=>{
     return (
-        <button className={style.button}>
+        <button className={style.button} type={type}>
             {children}
         </button>
     )

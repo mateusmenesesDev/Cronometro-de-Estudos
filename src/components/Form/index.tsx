@@ -1,9 +1,18 @@
+import React, { useState } from 'react'
+import { ITasks } from '../../types/tasks'
 import { Button } from '../Button'
 import style from './Form.module.scss'
 
-export const Form = ()=>{
+ 
+export const Form = ({setTasks}:{setTasks:React.Dispatch<React.SetStateAction<ITasks[]>>})=>{
+    const[task, setTask] = useState('')
+    const[time, setTime] = useState('')
+    const addTask = (event:React.FormEvent<HTMLFormElement>)=>{
+        event.preventDefault()
+        setTasks(oldTasks => [...oldTasks,{task:task, time:time}])
+    }
     return (
-        <form className={style.newTask}> 
+        <form className={style.newTask} onSubmit={addTask}> 
             <div className={style.inputContainer}>
                 <label htmlFor="task"></label>
                 <input 
@@ -12,6 +21,8 @@ export const Form = ()=>{
                     id='task'
                     placeholder="O que você deseja estudar"
                     required
+                    value={task}
+                    onChange={(event)=>setTask(event.target.value)}
                 />
             </div>
             <div className={style.inputContainer}>
@@ -24,9 +35,11 @@ export const Form = ()=>{
                     min='00:01:00'
                     max='05:00:00'
                     required
+                    value={time}
+                    onChange={(event)=>setTime(event.target.value)}
                 />
             </div>
-            <Button>Adicionar Estudo</Button>
+            <Button type='submit'>Adicionar Estudo</Button>
         </form>
     )
 }
