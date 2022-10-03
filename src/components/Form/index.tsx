@@ -45,7 +45,7 @@ export const Form = ({setTasks}:{setTasks:React.Dispatch<React.SetStateAction<IT
                     step='1'
                     name='time'
                     id='time'
-                    min='00:01:00'
+                    min='00:00:05'
                     max='05:00:00'
                     required
                     value={time}

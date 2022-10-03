@@ -15,8 +15,8 @@ export const Item = (
     }:Props)=>{
     return (
         <li 
-            className={`${style.item} ${select? style.itemSelect : ""}`} 
-            onClick={()=>selectTask(    
+            className={`${style.item} ${select? style.itemSelect : ""} ${completed? style.itemCompleted : ""}`} 
+            onClick={()=> !completed && selectTask(    
                 {
                     task,
                     time,
@@ -28,6 +28,7 @@ export const Item = (
         >
             <h3>{task}</h3>
             <span>{time}</span>
+            {completed && <span className={style.completed} ari-label='Tarefa concluída'></span>} 
         </li>
     )
 }
