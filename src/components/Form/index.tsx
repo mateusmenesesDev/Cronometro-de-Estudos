@@ -2,14 +2,27 @@ import React, { useState } from 'react'
 import { ITasks } from '../../types/tasks'
 import { Button } from '../Button'
 import style from './Form.module.scss'
-
+import {v4 as uuidv4} from 'uuid'
  
 export const Form = ({setTasks}:{setTasks:React.Dispatch<React.SetStateAction<ITasks[]>>})=>{
     const[task, setTask] = useState('')
     const[time, setTime] = useState('')
     const addTask = (event:React.FormEvent<HTMLFormElement>)=>{
         event.preventDefault()
-        setTasks(oldTasks => [...oldTasks,{task:task, time:time}])
+        setTasks(oldTasks => 
+            [
+                ...oldTasks,
+                {
+                    task:task, 
+                    time:time,
+                    select: false,
+                    completed: false,
+                    id:uuidv4()
+                }
+            ]
+        )
+        setTask('')
+        setTime('')
     }
     return (
         <form className={style.newTask} onSubmit={addTask}> 
